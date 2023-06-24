@@ -1,3 +1,4 @@
+import { Navbar } from '@/components/layout/Navbar/Navbar';
 import { Button } from '@/components/primitive/Button';
 import { cn } from '@/lib/util';
 import { Roboto } from 'next/font/google';
@@ -17,12 +18,8 @@ const rosarivo = Rosarivo({
 
 export default function Home() {
   return (
-    <main className={cn(roboto.variable, rosarivo.variable)}>
-      <div className="font-sans">
-        <Button variant="solid" size="sm" weight="bold">
-          CONTACT ME
-        </Button>
-      </div>
+    <main className={cn(roboto.variable, rosarivo.variable, 'font-sans')}>
+      <Navbar />
     </main>
   );
 }
