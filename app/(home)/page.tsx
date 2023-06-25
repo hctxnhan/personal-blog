@@ -1,5 +1,5 @@
+import { Hero } from '@/components/layout/Hero/Hero';
 import { Navbar } from '@/components/layout/Navbar/Navbar';
-import { Button } from '@/components/primitive/Button';
 import { cn } from '@/lib/util';
 import { Roboto } from 'next/font/google';
 import { Rosarivo } from 'next/font/google';
@@ -19,7 +19,8 @@ const rosarivo = Rosarivo({
 export default function Home() {
   return (
     <main className={cn(roboto.variable, rosarivo.variable, 'font-sans')}>
-      <Navbar />
+      <Navbar className="absolute left-1/2 transform -translate-x-1/2 bg-white z-10 h-[76px]" />
+      <Hero />
     </main>
   );
 }
