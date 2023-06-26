@@ -16,7 +16,7 @@ export function Container({
   return (
     <div
       className={cn(
-        'container mx-auto py-10 max-w-6xl',
+        'container mx-auto py-16 max-w-6xl',
         {
           'max-w-none': noMaxWidth,
           'h-screen': screenHeight

@@ -6,6 +6,7 @@ import { cn } from '@/lib/util';
 import { Inter, Noto_Serif } from 'next/font/google';
 import localFont from 'next/font/local';
 import { PopularPost } from './components/PopularPost';
+import { LatestPost } from './components/LatestPost';
 
 const notoSerif = Noto_Serif({
   subsets: ['latin'],
@@ -35,14 +36,25 @@ export default function Home() {
     >
       <Navbar className="absolute left-1/2 transform -translate-x-1/2 bg-white z-10 h-[76px]" />
       <Hero />
+      <div className='bg-neutral-100'>
+        <Container>
+          <div className="flex flex-col gap-8">
+            <SectionHeader
+              subtitle="This is popular post on my site. Let’s see what people interested in now."
+              title="Featured Post"
+            />
+          </div>
+          <PopularPost />
+        </Container>
+      </div>
       <Container>
         <div className="flex flex-col gap-8">
           <SectionHeader
-            subtitle="This is popular post on my site. Let’s see what people interested in now."
-            title="Featured Post"
+            subtitle="See what news on my blog since last time you visited."
+            title="Latest Post"
           />
         </div>
-        <PopularPost />
+        <LatestPost />
       </Container>
     </main>
   );
