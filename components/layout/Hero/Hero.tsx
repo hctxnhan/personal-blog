@@ -4,10 +4,8 @@ import Image from 'next/image';
 
 export function Hero() {
   return (
-    <Container
-      noMaxWidth
-      screenHeight
-      className="bg-sky-800 p-0 pt-[76px] relative flex max-h-screen"
+    <div
+      className="center pt-[76px] relative min-h-screen"
     >
       <Image
         className="absolute inset-0 w-full h-full"
@@ -25,6 +23,6 @@ export function Hero() {
           Looking for inspiration and insights.
         </p>
       </div>
-    </Container>
+    </div>
   );
 }

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/util';
 import * as Separator from '@radix-ui/react-separator';
@@ -8,23 +8,20 @@ const buttonVariants = cva(['transition-all center'], {
     variant: {
       outline: 'border-2 border-sky-800',
       solid: 'bg-sky-800 text-sky-50',
-      underline: 'border-b-8 border-sky-800 rounded-none'
+      underline: 'border-b-8 border-sky-800 p-0'
     },
     tone: {
       dark: '',
       light: ''
-    },
-    size: {
-      sm: 'px-4 py-2',
-      none: ''
     },
     weight: {
       normal: 'font-normal',
       bold: 'font-bold'
     },
     shape: {
-        default: 'rounded-md',
-        rounded: 'rounded-full'
+      rounded: 'rounded-md',
+      default: 'rounded-none',
+      circle: 'rounded-full'
     }
   },
   compoundVariants: [
@@ -36,7 +33,6 @@ const buttonVariants = cva(['transition-all center'], {
   ],
   defaultVariants: {
     variant: 'solid',
-    size: 'sm',
     weight: 'normal',
     tone: 'dark',
     shape: 'default'
@@ -48,28 +44,35 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   icon?: React.ReactNode;
   iconOnly?: boolean;
+  uppercase?: boolean;
 }
 
 export function Button({
   className,
   variant,
-  size,
   weight,
   tone,
   shape,
   icon,
+  uppercase,
   iconOnly,
   ...props
 }: ButtonProps) {
   return (
     <button
-      className={cn(buttonVariants({ variant, size, weight, tone, shape }), className)}
+      className={cn(
+        buttonVariants({ shape, variant, weight, tone }),
+        uppercase && 'uppercase',
+        className
+      )}
       {...props}
     >
       {!iconOnly && props.children}
       {icon && (
         <>
-          {!iconOnly && <Separator.Root orientation="vertical" className="h-4" />}
+          {!iconOnly && (
+            <Separator.Root orientation="vertical" className="h-4" />
+          )}
           <div>{icon}</div>
         </>
       )}

@@ -12,7 +12,8 @@ const headingVariants = cva('', {
     },
     font: {
       sans: 'font-sans',
-      serif: 'font-serif'
+      serif: 'font-serif',
+      display: 'font-display'
     }
   },
   defaultVariants: {
