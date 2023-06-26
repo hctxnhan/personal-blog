@@ -47,7 +47,10 @@ export default function Home() {
         <PopularPost />
       </Container>
       <Container className="bg-sky-950">
-        <SectionHeader inverted subtitle="See what news on my blog since last time you visited.">
+        <SectionHeader
+          inverted
+          subtitle="See what news on my blog since last time you visited."
+        >
           GALLERY
         </SectionHeader>
         <Carousel.Container />
