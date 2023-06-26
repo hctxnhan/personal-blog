@@ -26,7 +26,7 @@ export function PostCard({
 }: PostCardProps) {
   return (
     <div
-      className={cn('flex gap-4 transition-transform transform hover:-translate-y-2', {
+      className={cn('flex gap-4 transition-transform transform hover:-translate-y-1', {
         'flex-col': direction === 'column'
       })}
     >

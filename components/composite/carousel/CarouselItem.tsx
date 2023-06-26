@@ -9,9 +9,15 @@ interface CarouselItemProps extends PropsWithChildren {
 export function CarouselItem({
   className,
   children,
+  selected
 }: CarouselItemProps) {
   return (
-    <div className="h-[300px] min-w-[700px] center relative">
+    <div
+      className={cn('transition-all h-[400px] min-w-[700px] center relative transform', {
+        'opacity-1': selected,
+        'opacity-50': !selected
+      })}
+    >
       <div
         className={cn('transition-all w-full h-full bg-pink-100', className)}
       >

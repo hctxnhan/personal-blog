@@ -11,20 +11,20 @@ export function Container({
   children,
   className,
   noMaxWidth,
-  screenHeight,
+  screenHeight
 }: ContainerProps) {
   return (
     <div
       className={cn(
-        'container mx-auto py-16 max-w-6xl',
+        'py-16',
         {
-          'max-w-none': noMaxWidth,
+          'max-w-none w-full': noMaxWidth,
           'h-screen': screenHeight
         },
         className
       )}
     >
-      {children}
+      <div className="container mx-auto max-w-6xl">{children}</div>
     </div>
   );
 }

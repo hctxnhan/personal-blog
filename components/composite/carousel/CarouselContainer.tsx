@@ -32,6 +32,10 @@ export function CarouselContainer() {
     return slide * slideSize;
   }
 
+  function isSelected(slide: number) {
+    return currentSlide === slide;
+  }
+
   const centeringSelectedSlide = useCallback(
     (slide: number) => {
       const container = containerRef.current;
@@ -56,9 +60,9 @@ export function CarouselContainer() {
   return (
     <div className="relative">
       <Button
-        shape={'rounded'}
+        shape={'circle'}
         iconOnly
-        icon={<ChevronLeftIcon width={'24px'} />}
+        icon={<ChevronLeftIcon width={'64px'} />}
         className={cn(
           'aspect-square absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10',
           {
@@ -68,9 +72,9 @@ export function CarouselContainer() {
         onClick={prevSlide}
       />
       <Button
-        shape={'rounded'}
+        shape={'circle'}
         iconOnly
-        icon={<ChevronRightIcon width={'24px'} />}
+        icon={<ChevronRightIcon width={'64px'} />}
         className={cn(
           'aspect-square absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10',
           {
@@ -81,8 +85,8 @@ export function CarouselContainer() {
       />
       <div className="flex overflow-hidden" ref={containerRef}>
         {Array.from({ length: 10 }).map((_, i) => (
-          <CarouselItem key={i}>
-            Alo {i} {currentSlide === i ? 'selected' : ''}
+          <CarouselItem selected={isSelected(i)} key={i}>
+            Alo {i} {isSelected(i) ? 'selected' : ''}
           </CarouselItem>
         ))}
       </div>
