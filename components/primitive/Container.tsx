@@ -19,7 +19,7 @@ export function Container({
         'container mx-auto py-10 max-w-6xl',
         {
           'max-w-none': noMaxWidth,
-          'min-h-screen': screenHeight
+          'h-screen': screenHeight
         },
         className
       )}

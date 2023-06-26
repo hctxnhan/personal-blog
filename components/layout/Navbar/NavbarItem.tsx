@@ -14,7 +14,7 @@ export function NavbarItem({
   return (
     <p
       className={cn(
-        `group inline-block cursor-pointer text-sky-800 font-bold relative after:transition-all uppercase
+        `group inline-block cursor-pointer text-sky-800 font-semibold relative after:transition-all uppercase
         after:block after:absolute after:w-0 after:hover:w-[25px] after:max-w-full after:h-1 after:bg-sky-800`,
         {
           'after:w-full after:hover:w-full': isActive

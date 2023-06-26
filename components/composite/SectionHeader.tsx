@@ -16,7 +16,7 @@ export function SectionHeader({
       <Heading className='text-sky-950' size={'h2'} font={'serif'}>
         {title ?? children}
       </Heading>
-      <Heading className='text-slate-600' size={'h4'}>{subtitle}</Heading>
+      <Heading className='text-neutral-500' size={'h4'}>{subtitle}</Heading>
     </div>
   );
 }

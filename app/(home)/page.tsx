@@ -4,24 +4,29 @@ import { Hero } from '@/components/layout/Hero/Hero';
 import { Navbar } from '@/components/layout/Navbar/Navbar';
 import { Container } from '@/components/primitive/Container';
 import { cn } from '@/lib/util';
-import { Roboto } from 'next/font/google';
-import { Rosarivo } from 'next/font/google';
+import { Noto_Serif } from 'next/font/google';
+import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 
-const roboto = Roboto({
-  weight: ['400', '500', '700'],
+const notoSerif = Noto_Serif({
   subsets: ['latin'],
-  variable: '--font-roboto'
-});
+  variable: '--font-noto-serif',
+  weight: ['400', '700'],
+})
 
-const rosarivo = Rosarivo({
-  weight: '400',
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-rosarivo'
-});
+  variable: '--font-inter',
+})
+
+const thunder = localFont({
+  src: '../../public/fonts/Thunder-SemiBold.ttf',
+  variable: '--font-thunder',
+})
 
 export default function Home() {
   return (
-    <main className={cn(roboto.variable, rosarivo.variable, 'font-sans')}>
+    <main className={cn(inter.variable, notoSerif.variable, thunder.variable, 'font-sans')}>
       <Navbar className="absolute left-1/2 transform -translate-x-1/2 bg-white z-10 h-[76px]" />
       <Hero />
       <Container>
