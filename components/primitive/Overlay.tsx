@@ -7,7 +7,7 @@ interface OverlayProps extends PropsWithChildren<{}> {
 
 export function Overlay({ children, className }: OverlayProps) {
   return (
-    <div className={cn('absolute inset-0 bg-sky-900/80', className)}>
+    <div className={cn('absolute inset-0 bg-sky-900/80 -z-10', className)}>
       {children}
     </div>
   );

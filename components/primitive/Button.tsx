@@ -29,7 +29,7 @@ const buttonVariants = cva(['transition-all center'], {
     {
       variant: 'outline',
       tone: 'light',
-      className: ['border-sky-50/90 text-sky-50/90 hover:bg-sky-50/10']
+      className: ['border-sky-50/90 text-sky-50/90 hover:bg-sky-50/10 px-4 py-2']
     }
   ],
   defaultVariants: {

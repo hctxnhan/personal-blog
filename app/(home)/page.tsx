@@ -2,15 +2,15 @@ import { SectionHeader } from '@/components/composite/SectionHeader';
 import { Hero } from '@/components/layout/Hero/Hero';
 import { Navbar } from '@/components/layout/Navbar/Navbar';
 import { Container } from '@/components/primitive/Container';
-
 import { PopularPost } from './components/PopularPost';
 import { LatestPost } from './components/LatestPost';
-import { Carousel } from '@/components/composite/carousel';
+import { Carousel } from '@/components/composite/Carousel';
+import { Footer } from '@/components/layout/Footer/Footer';
 
 export default function Home() {
   return (
     <main>
-      <Navbar className="left-1/2 transform -translate-x-1/2 bg-white z-10 h-[76px] fixed z-50" />
+      <Navbar className="left-1/2 transform -translate-x-1/2 bg-white h-[76px] fixed z-50" />
       <Hero />
       <Container>
         <div className="flex flex-col gap-8">
@@ -39,6 +39,7 @@ export default function Home() {
         </div>
         <LatestPost />
       </Container>
+      <Footer />
     </main>
   );
 }

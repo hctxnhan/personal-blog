@@ -13,7 +13,7 @@ export function CarouselItem({
 }: CarouselItemProps) {
   return (
     <div
-      className={cn('transition-all h-[400px] min-w-[700px] center relative transform', {
+      className={cn('px-2 transition-all h-[400px] min-w-[700px] center relative transform', {
         'opacity-1': selected,
         'opacity-50 pointer-events-none': !selected
       })}

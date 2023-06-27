@@ -1,11 +1,11 @@
-"use client"
+'use client';
 import Image from 'next/image';
 import { Badge } from '../primitive/Badge';
 import { cn } from '@/lib/util';
 import { Overlay } from '../primitive/Overlay';
 import { useCursor } from '@/hooks/useCursor';
 
-interface PostCardProps {
+export interface PostCardProps {
   title: string;
   preview?: string;
   imgSrc: string;
@@ -46,7 +46,7 @@ export function PostCard({
         })}
       >
         <Image
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full -z-20 object-cover object-center"
           src={imgSrc}
           alt={imgAlt}
           width={500}
