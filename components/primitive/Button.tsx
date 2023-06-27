@@ -3,13 +3,18 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/util';
 import * as Separator from '@radix-ui/react-separator';
 import { forwardRef } from 'react';
+import styles from './Button.module.css';
 
 const buttonVariants = cva(['transition-all center'], {
   variants: {
     variant: {
-      outline: 'border-2 border-sky-800',
+      outline: 'border-2 border-sky-800 text-sky-800',
       solid: 'bg-sky-800 text-sky-50',
       underline: 'border-b-8 border-sky-800 p-0'
+    },
+    size: {
+      small: 'text-sm px-3 py-2',
+      medium: 'text-base px-4 py-2'
     },
     tone: {
       dark: '',
@@ -29,14 +34,20 @@ const buttonVariants = cva(['transition-all center'], {
     {
       variant: 'outline',
       tone: 'light',
-      className: ['border-sky-50/90 text-sky-50/90 hover:bg-sky-50/10 px-4 py-2']
+      className: ['border-sky-50/90 text-sky-50/90 hover:bg-sky-50/10']
+    },
+    {
+      variant: 'outline',
+      tone: 'dark',
+      className: [styles.btnOutlineDark, 'hover:text-sky-50']
     }
   ],
   defaultVariants: {
     variant: 'solid',
     weight: 'normal',
     tone: 'dark',
-    shape: 'default'
+    shape: 'default',
+    size: 'medium'
   }
 });
 
@@ -57,6 +68,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       tone,
       shape,
       icon,
+      size,
       uppercase,
       iconOnly,
       ...props
@@ -67,7 +79,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          buttonVariants({ shape, variant, weight, tone }),
+          buttonVariants({ shape, variant, weight, tone, size }),
           uppercase && 'uppercase',
           className
         )}

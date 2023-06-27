@@ -1,3 +1,4 @@
+import { Pagination } from '@/components/composite/Pagination/Pagination';
 import { PostGrid } from '@/components/composite/PostGrid/PostGrid';
 import { SectionHeader } from '@/components/composite/SectionHeader';
 import { Footer } from '@/components/layout/Footer/Footer';
@@ -16,7 +17,10 @@ export default function Blog() {
             title="All Posts"
           />
         </div>
-        <PostGrid posts={Array(11).fill(mockPostCard)} />
+        <div className="flex flex-col gap-14">
+          <PostGrid posts={Array(11).fill(mockPostCard)} />
+          <Pagination pages={3} currentPage={2} />
+        </div>
       </Container>
       <Footer />
     </main>

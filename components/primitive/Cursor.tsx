@@ -62,7 +62,7 @@ export function Cursor() {
   return (
     <div
       className={cn(
-        'aspect-square opacity-0 center p-4 absolute rounded-full bg-blue-400/95 pointer-events-none whitespace-nowrap transition-opacity transform scale-[0.2] top-0 left-0',
+        'aspect-square opacity-0 center p-4 absolute rounded-full bg-sky-700/95 pointer-events-none whitespace-nowrap transition-opacity transform scale-[0.2] top-0 left-0',
         {
           'opacity-100': show
         }
