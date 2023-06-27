@@ -10,6 +10,7 @@ import { CarouselItem } from './CarouselItem';
 import { Button } from '@/components/primitive/Button';
 import { ChevronRightIcon, ChevronLeftIcon } from '@radix-ui/react-icons';
 import { cn } from '@/lib/util';
+import { PostCard } from '../PostCard';
 
 interface CarouselContainerProps extends PropsWithChildren {
   className?: string;
@@ -86,7 +87,17 @@ export function CarouselContainer() {
       <div className="flex overflow-hidden" ref={containerRef}>
         {Array.from({ length: 10 }).map((_, i) => (
           <CarouselItem selected={isSelected(i)} key={i}>
-            Alo {i} {isSelected(i) ? 'selected' : ''}
+            <PostCard
+              key={i}
+              direction="column"
+              estimatedReadTime="1 min"
+              size='medium'
+              tag="Lifestyle"
+              title="Invest more time in planning your projects in order to deliver on time"
+              imgAlt="A picture of a dog"
+              inset
+              imgSrc="https://images.unsplash.com/photo-1687702720985-48faa9c4ab7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+            />
           </CarouselItem>
         ))}
       </div>

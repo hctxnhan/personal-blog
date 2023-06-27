@@ -10,7 +10,7 @@ export function Badge({ children, color = 'neutral', size }: BadgeProps) {
   const colorHex = colors[color][400];
   return (
     <span
-      className={`center px-3 py-1 rounded-full text-sm border`}
+      className={`center px-3 py-1 rounded-full text-xs border`}
       style={{ borderColor: colorHex, color: colorHex }}
     >
       {children}
