@@ -10,7 +10,7 @@ import { Carousel } from '@/components/composite/carousel';
 export default function Home() {
   return (
     <main>
-      <Navbar className="absolute left-1/2 transform -translate-x-1/2 bg-white z-10 h-[76px]" />
+      <Navbar className="left-1/2 transform -translate-x-1/2 bg-white z-10 h-[76px] fixed z-50" />
       <Hero />
       <Container>
         <div className="flex flex-col gap-8">

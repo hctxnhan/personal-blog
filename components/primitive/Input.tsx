@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, ...props }, ref) => {
+  (props, ref) => {
     return (
       <input
         className="border-2 border-neutral-300 rounded-lg py-2 px-4"

@@ -10,7 +10,7 @@ export function NavbarProfile() {
         alt="PL"
       />
       <div>
-        <p className='font-semibold text-sky-900'>Do Phuong Linh</p>
+        <p className='font-medium text-sky-900'>Do Phuong Linh</p>
         <p className='text-sm text-slate-500'>linh.dophuong@gmail.com</p>
       </div>
       <div>
