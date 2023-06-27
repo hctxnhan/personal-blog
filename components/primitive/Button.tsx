@@ -2,6 +2,7 @@
 import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/lib/util';
 import * as Separator from '@radix-ui/react-separator';
+import { forwardRef } from 'react';
 
 const buttonVariants = cva(['transition-all center'], {
   variants: {
@@ -47,38 +48,43 @@ export interface ButtonProps
   uppercase?: boolean;
 }
 
-export function Button({
-  className,
-  variant,
-  weight,
-  tone,
-  shape,
-  icon,
-  uppercase,
-  iconOnly,
-  ...props
-}: ButtonProps) {
-  return (
-    <button
-      className={cn(
-        buttonVariants({ shape, variant, weight, tone }),
-        uppercase && 'uppercase',
-        className
-      )}
-      {...props}
-    >
-      {!iconOnly && props.children}
-      {icon && (
-        <>
-          {!iconOnly && (
-            <Separator.Root orientation="vertical" className="h-4" />
-          )}
-          <div>{icon}</div>
-        </>
-      )}
-    </button>
-  );
-}
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      variant,
+      weight,
+      tone,
+      shape,
+      icon,
+      uppercase,
+      iconOnly,
+      ...props
+    }: ButtonProps,
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          buttonVariants({ shape, variant, weight, tone }),
+          uppercase && 'uppercase',
+          className
+        )}
+        {...props}
+      >
+        {!iconOnly && props.children}
+        {icon && (
+          <>
+            {!iconOnly && (
+              <Separator.Root orientation="vertical" className="h-4" />
+            )}
+            <div>{icon}</div>
+          </>
+        )}
+      </button>
+    );
+  }
+);
 
-// variant: outline, solid, withIcon, underline, link, ghost
-// size: sm, md, lg
+Button.displayName = 'Button';

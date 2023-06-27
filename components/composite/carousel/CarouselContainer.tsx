@@ -11,6 +11,7 @@ import { Button } from '@/components/primitive/Button';
 import { ChevronRightIcon, ChevronLeftIcon } from '@radix-ui/react-icons';
 import { cn } from '@/lib/util';
 import { PostCard } from '../PostCard';
+import { useCursor } from '@/hooks/useCursor';
 
 interface CarouselContainerProps extends PropsWithChildren {
   className?: string;
@@ -20,6 +21,8 @@ export function CarouselContainer() {
   const slideSize = 700;
   const [currentSlide, setCurrentSlide] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const nextButtonCursorRef = useCursor<HTMLButtonElement>('Next slide');
+  const prevButtonCursorRef = useCursor<HTMLButtonElement>('Previous slide');
 
   function nextSlide() {
     setCurrentSlide(currentSlide + 1 < 10 ? currentSlide + 1 : 9);
@@ -61,6 +64,7 @@ export function CarouselContainer() {
   return (
     <div className="relative">
       <Button
+        ref={prevButtonCursorRef}
         shape={'circle'}
         iconOnly
         icon={<ChevronLeftIcon width={'64px'} />}
@@ -73,6 +77,7 @@ export function CarouselContainer() {
         onClick={prevSlide}
       />
       <Button
+        ref={nextButtonCursorRef}
         shape={'circle'}
         iconOnly
         icon={<ChevronRightIcon width={'64px'} />}
