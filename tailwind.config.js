@@ -11,6 +11,9 @@ module.exports = {
         sans: ['var(--font-inter)', 'sans-serif'],
         serif: ['var(--font-noto-serif)', "serif"],
         display: ['var(--font-thunder)', "serif"],
+      },
+      gridTemplateColumns: {
+        container: 'minmax(0, 1fr) minmax(72rem, 1fr) minmax(0, 1fr)',
       }
     },
   },

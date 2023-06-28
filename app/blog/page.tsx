@@ -6,7 +6,7 @@ import { Navbar } from '@/components/layout/Navbar/Navbar';
 import { Container } from '@/components/primitive/Container';
 import { mockPostCard } from '../mockPostCard';
 
-export default function Blog() {
+export default function BlogPage() {
   return (
     <main>
       <Navbar className="left-1/2 transform -translate-x-1/2 bg-white h-[76px] fixed z-50" />

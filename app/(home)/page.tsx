@@ -7,7 +7,7 @@ import { LatestPost } from './components/LatestPost';
 import { Carousel } from '@/components/composite/Carousel';
 import { Footer } from '@/components/layout/Footer/Footer';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <main>
       <Navbar className="left-1/2 transform -translate-x-1/2 bg-white h-[76px] fixed z-50" />

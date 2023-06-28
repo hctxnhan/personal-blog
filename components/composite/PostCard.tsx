@@ -4,6 +4,7 @@ import { Badge } from '../primitive/Badge';
 import { cn } from '@/lib/util';
 import { Overlay } from '../primitive/Overlay';
 import { useCursor } from '@/hooks/useCursor';
+import Link from 'next/link';
 
 export interface PostCardProps {
   title: string;
@@ -28,10 +29,11 @@ export function PostCard({
   direction = 'row',
   inset = false
 }: PostCardProps) {
-  const cursorRef = useCursor<HTMLDivElement>('Read more');
+  const cursorRef = useCursor<HTMLAnchorElement>('Read more');
 
   return (
-    <div
+    <Link
+      href={'/blog/postId'}
       ref={cursorRef}
       className={cn(
         'group flex gap-4 h-full transition-transform ease-out duration-300 transform hover:-translate-y-1 hover:cursor-pointer',
@@ -79,6 +81,6 @@ export function PostCard({
         </h3>
         {preview && <p className="text-neutral-500 text-sm">{preview}</p>}
       </div>
-    </div>
+    </Link>
   );
 }

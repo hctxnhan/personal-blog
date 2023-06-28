@@ -2,7 +2,12 @@
 const nextConfig = {
   images: {
     domains: ['images.unsplash.com']
+  },
+  experimental: {
+    mdxRs: true
   }
 };
 
-module.exports = nextConfig;
+const withMDX = require('@next/mdx')();
+
+module.exports = withMDX(nextConfig);

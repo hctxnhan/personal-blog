@@ -67,7 +67,7 @@ export function CarouselContainer() {
         ref={prevButtonCursorRef}
         shape={'circle'}
         iconOnly
-        icon={<ChevronLeftIcon width={'64px'} />}
+        icon={<ChevronLeftIcon height={'35px'} width={'35px'} />}
         className={cn(
           'aspect-square absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-10',
           {
@@ -80,7 +80,7 @@ export function CarouselContainer() {
         ref={nextButtonCursorRef}
         shape={'circle'}
         iconOnly
-        icon={<ChevronRightIcon width={'64px'} />}
+        icon={<ChevronRightIcon height={'35px'} width={'35px'} />}
         className={cn(
           'aspect-square absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10',
           {
