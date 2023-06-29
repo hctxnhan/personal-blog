@@ -11,7 +11,7 @@ const postContentVariants = cva('', {
     },
     type: {
       callout:
-        'bg-neutral-100 p-6 border-l-4 border-sky-800/80 text-neutral-500 mb-4',
+        'bg-neutral-100 p-6 border-l-4 border-sky-800/80 text-neutral-500 mb-4 pb-2',
       default: ''
     }
   },

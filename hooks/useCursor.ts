@@ -1,4 +1,3 @@
-'use client';
 import { useEffect, useRef } from 'react';
 
 export function useCursor<T extends HTMLElement>(text: string | false) {

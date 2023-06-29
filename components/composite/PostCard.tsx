@@ -5,6 +5,7 @@ import { cn } from '@/lib/util';
 import { Overlay } from '../primitive/Overlay';
 import { useCursor } from '@/hooks/useCursor';
 import Link from 'next/link';
+import { useHover } from '@/hooks/useHover';
 
 export interface PostCardProps {
   title: string;
@@ -30,6 +31,7 @@ export function PostCard({
   inset = false
 }: PostCardProps) {
   const cursorRef = useCursor<HTMLAnchorElement>('Read more');
+  const isHover = useHover(cursorRef);
 
   return (
     <Link
@@ -74,7 +76,8 @@ export function PostCard({
           className={cn('text-xl font-serif', {
             'text-3xl': size === 'big',
             'text-2xl': size === 'medium',
-            'text-white font-bold': inset
+            'text-white font-bold': inset,
+            'text-sky-800': isHover && !inset
           })}
         >
           {title}
