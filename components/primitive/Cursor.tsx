@@ -18,7 +18,7 @@ export function Cursor() {
 
       if (ref.current) {
         ref.current.animate([keyframes], {
-          duration: 800,
+          duration: 500,
           fill: 'forwards'
         });
       }

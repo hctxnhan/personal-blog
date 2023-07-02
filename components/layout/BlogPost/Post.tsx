@@ -5,27 +5,31 @@ import { PostImage } from './PostImage';
 import { customFetch } from '@/lib/fetch';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { PostMDX } from './PostContent';
+import { Post } from '@/types/Post';
+import { constructUrl } from '@/lib/util';
 
-export async function Post() {
-  const post = await customFetch('posts');
+export async function SinglePost() {
+  const post = await customFetch<Post>('posts/1?populate=*');
 
-  const postsData = await post.json();
-
-  const title = postsData['data'][0]['attributes']['title'];
-  const content = postsData['data'][0]['attributes']['content'];
-
+  const { data } = await post.getData;
   return (
     <div>
       <Container includeNavbar className="pb-0">
-        <PostTitle>
-          {title}
-        </PostTitle>
+        <PostTitle>{data.attributes.title}</PostTitle>
         <PostAvatar />
       </Container>
-      <PostImage />
-      <Container className="pt-0">
+      <PostImage
+        imgSrc={constructUrl(
+          data.attributes.thumbnail.data.attributes.url,
+          true
+        )}
+        imgAlt={data.attributes.title}
+        height={data.attributes.thumbnail.data.attributes.height}
+        width={data.attributes.thumbnail.data.attributes.width}
+      />
+      <Container className="pt-0" noCursorTrailer>
         <MDXRemote
-          source={content}
+          source={data.attributes.content}
           components={{
             h1: PostMDX.h1,
             h2: PostMDX.h2,

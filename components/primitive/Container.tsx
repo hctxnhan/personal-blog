@@ -1,11 +1,14 @@
+'use client';
 import { cn } from '@/lib/util';
 import { PropsWithChildren } from 'react';
+import { useCursor } from '@/hooks/useCursor';
 
 interface ContainerProps extends PropsWithChildren<{}> {
   className?: string;
   noMaxWidth?: boolean;
   screenHeight?: boolean;
   includeNavbar?: boolean;
+  noCursorTrailer?: boolean;
 }
 
 export function Container({
@@ -13,10 +16,13 @@ export function Container({
   className,
   noMaxWidth,
   screenHeight,
+  noCursorTrailer = false,
   includeNavbar = false
 }: ContainerProps) {
+  const ref = useCursor<HTMLDivElement>(false);
   return (
     <div
+      ref={noCursorTrailer ? ref : undefined}
       className={cn(
         'py-16 relative',
         {

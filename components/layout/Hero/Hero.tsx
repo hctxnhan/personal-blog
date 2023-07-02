@@ -1,14 +1,20 @@
 import { Container } from '@/components/primitive/Container';
 import { Overlay } from '@/components/primitive/Overlay';
+import { customFetch } from '@/lib/fetch';
+import { Homepage } from '@/types/Single';
 import Image from 'next/image';
 
-export function Hero() {
+export async function Hero() {
+  const homepageSingle = await customFetch<Homepage>(
+    'homepage?fields[0]=heroTitle&fields[1]=heroSubtitle&populate[0]=heroImage'
+  );
+
+  const { data } = await homepageSingle.getData;
+    console.log
+  if(!data) return null;
+
   return (
-    <Container
-      noMaxWidth
-      screenHeight
-      className="center relative min-h-screen"
-    >
+    <Container noMaxWidth screenHeight className="center relative min-h-screen">
       <Image
         className="absolute inset-0 w-full h-full -z-20"
         src={
@@ -20,9 +26,9 @@ export function Hero() {
       />
       <Overlay />
       <div className="flex flex-col gap-4 mx-auto justify-center text-white text-center">
-        <p className="text-9xl font-display z-10">DESIGN</p>
+        <p className="text-9xl font-display z-10">{data.attributes.heroTitle}</p>
         <p className="text-2xl font-serif z-10 text-neutral-200">
-          Looking for inspiration and insights.
+          {data.attributes.heroSubtitle}
         </p>
       </div>
     </Container>

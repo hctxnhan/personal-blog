@@ -1,8 +1,8 @@
 import { Cursor } from '@/components/primitive/Cursor';
+import { cn } from '@/lib/util';
 import { Inter, Noto_Serif } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
-import { cn } from '@/lib/util';
 
 const notoSerif = Noto_Serif({
   subsets: ['latin'],

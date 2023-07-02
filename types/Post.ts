@@ -1,7 +1,10 @@
-interface Post {
-  id: number;
-  attributes: {
-    content: string;
-    title: string;
-  };
+import { DataSingle } from "@/lib/fetch";
+import { Image } from "./Single";
+import { Category } from "./Category";
+
+export interface Post {
+  content: string;
+  title: string;
+  thumbnail: DataSingle<Image>;
+  label: DataSingle<Category>;
 }

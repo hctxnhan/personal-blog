@@ -1,17 +1,20 @@
 'use client';
-import Image from 'next/image';
-import { Badge } from '../primitive/Badge';
-import { cn } from '@/lib/util';
-import { Overlay } from '../primitive/Overlay';
 import { useCursor } from '@/hooks/useCursor';
-import Link from 'next/link';
 import { useHover } from '@/hooks/useHover';
+import { cn } from '@/lib/util';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Badge } from '../primitive/Badge';
+import { Overlay } from '../primitive/Overlay';
 
 export interface PostCardProps {
+  id?: number;
   title: string;
   preview?: string;
   imgSrc: string;
   imgAlt: string;
+  imgHeight?: number;
+  imgWidth?: number;
   tag: string;
   estimatedReadTime: string;
   size?: 'big' | 'small' | 'medium';
@@ -24,15 +27,16 @@ export function PostCard({
   tag,
   imgAlt,
   imgSrc,
+  imgHeight,
+  imgWidth,
   preview,
   title,
   size = 'small',
   direction = 'row',
-  inset = false
+  inset = false,
 }: PostCardProps) {
   const cursorRef = useCursor<HTMLAnchorElement>('Read more');
   const isHover = useHover(cursorRef);
-
   return (
     <Link
       href={'/blog/postId'}
@@ -46,15 +50,16 @@ export function PostCard({
     >
       <div
         className={cn('w-[200px] relative', {
-          'min-h-[230px] h-full w-full': direction === 'column'
+          'h-[230px] w-full': direction === 'column',
+          'h-full': inset
         })}
       >
         <Image
           className="absolute inset-0 w-full h-full -z-20 object-cover object-center"
           src={imgSrc}
           alt={imgAlt}
-          width={500}
-          height={500}
+          width={imgWidth || 500}
+          height={imgHeight || 500}
         />
         <Overlay className="transition-all group-hover:opacity-100 opacity-0" />
       </div>
