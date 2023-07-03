@@ -10,7 +10,6 @@ export async function Hero() {
   );
 
   const { data } = await homepageSingle.getData;
-    console.log
   if(!data) return null;
 
   return (

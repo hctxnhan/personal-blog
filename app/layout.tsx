@@ -3,6 +3,7 @@ import { cn } from '@/lib/util';
 import { Inter, Noto_Serif } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
+import { Navbar } from '@/components/layout/Navbar/Navbar';
 
 const notoSerif = Noto_Serif({
   subsets: ['latin'],
@@ -40,10 +41,12 @@ export default function RootLayout({
           notoSerif.variable
         )}
       >
+        <Navbar className="left-1/2 transform -translate-x-1/2 bg-white h-[76px] fixed z-50" />
         {children}
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50">
           <Cursor />
         </div>
+        <div id="modal" className="z-50 absolute top-0 left-0" />
       </body>
     </html>
   );

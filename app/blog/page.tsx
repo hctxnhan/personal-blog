@@ -1,15 +1,11 @@
 import { Pagination } from '@/components/composite/Pagination/Pagination';
-import { PostGrid } from '@/components/composite/PostGrid/PostGrid';
 import { SectionHeader } from '@/components/composite/SectionHeader';
 import { Footer } from '@/components/layout/Footer/Footer';
-import { Navbar } from '@/components/layout/Navbar/Navbar';
 import { Container } from '@/components/primitive/Container';
-import { mockPostCard } from '../mockPostCard';
 
 export default function BlogPage() {
   return (
     <main>
-      <Navbar className="left-1/2 transform -translate-x-1/2 bg-white h-[76px] fixed z-50" />
       <Container includeNavbar>
         <div className="flex flex-col gap-8">
           <SectionHeader
@@ -18,7 +14,7 @@ export default function BlogPage() {
           />
         </div>
         <div className="flex flex-col gap-14">
-          <PostGrid posts={Array(11).fill(mockPostCard)} />
+          {/* <PostGrid posts={Array(11).fill(mockPostCard)} /> */}
           <Pagination pages={3} currentPage={2} />
         </div>
       </Container>

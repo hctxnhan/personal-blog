@@ -8,7 +8,6 @@ interface PostGridProps {
 }
 
 export function PostGrid({ posts }: PostGridProps) {
-  console.log(constructUrl(posts[0].attributes.thumbnail.data.attributes.url, true))
   const postCardProps: PostCardProps[] = posts.map(({ id, attributes }) => ({
     estimatedReadTime: '2 min',
     tag: attributes.label.data.attributes.name,

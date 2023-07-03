@@ -1,5 +1,4 @@
 import { cn } from '@/lib/util';
-import { cva, VariantProps } from 'class-variance-authority';
 
 export interface IconProps
   extends React.HTMLAttributes<HTMLDivElement> {

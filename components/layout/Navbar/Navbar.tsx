@@ -2,9 +2,9 @@
 import { Container } from '@/components/primitive/Container';
 import { useCursor } from '@/hooks/useCursor';
 import { cn } from '@/lib/util';
+import { ContactButton } from './ContactButton';
 import { NavbarItem } from './NavbarItem';
 import { NavbarProfile } from './NavbarProfile';
-import { Button } from '@/components/primitive/Button';
 
 interface NavbarProps {
   className?: string;
@@ -23,9 +23,7 @@ export function Navbar({ className }: NavbarProps) {
           <NavbarItem link="/">Home</NavbarItem>
           <NavbarItem link="/blog">Blog</NavbarItem>
           <NavbarItem link="/about">About</NavbarItem>
-          <Button variant={'outline'} tone={'dark'} shape={'circle'} size={'small'} className="text-sm">
-            Contact
-          </Button>
+          <ContactButton />
         </div>
         <div className="flex gap-8 items-center">
           <NavbarProfile />
