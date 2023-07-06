@@ -33,7 +33,7 @@ export function PostCard({
   title,
   size = 'small',
   direction = 'row',
-  inset = false,
+  inset = false
 }: PostCardProps) {
   const cursorRef = useCursor<HTMLAnchorElement>('Read more');
   const isHover = useHover(cursorRef);
@@ -51,6 +51,7 @@ export function PostCard({
       <div
         className={cn('w-[200px] relative', {
           'h-[230px] w-full': direction === 'column',
+          'flex-[0.4]': direction === 'row',
           'h-full': inset
         })}
       >
@@ -66,7 +67,8 @@ export function PostCard({
       <div
         className={cn('flex gap-2 items-start flex-col', {
           'absolute top-10 left-10 right-10 bottom-10 transition-all group-hover:opacity-100 opacity-0 justify-end':
-            inset
+            inset,
+          'flex-[0.6]': direction === 'row'
         })}
       >
         {!inset && (
