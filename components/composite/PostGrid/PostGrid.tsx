@@ -15,7 +15,8 @@ export function PostGrid({ posts }: PostGridProps) {
     imgSrc: constructUrl(attributes.thumbnail.data.attributes.url, true),
     title: attributes.title,
     id: id,
-    direction: 'column'
+    direction: 'column',
+    slug: attributes.slug
   }));
 
   return (

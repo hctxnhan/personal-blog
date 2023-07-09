@@ -20,6 +20,7 @@ export interface PostCardProps {
   size?: 'big' | 'small' | 'medium';
   direction?: 'row' | 'column';
   inset?: boolean;
+  slug?: string;
 }
 
 export function PostCard({
@@ -33,13 +34,15 @@ export function PostCard({
   title,
   size = 'small',
   direction = 'row',
-  inset = false
+  inset = false,
+  slug
 }: PostCardProps) {
   const cursorRef = useCursor<HTMLAnchorElement>('Read more');
   const isHover = useHover(cursorRef);
+
   return (
     <Link
-      href={'/blog/postId'}
+      href={`/blog/${slug}`}
       ref={cursorRef}
       className={cn(
         'group flex gap-4 h-full transition-transform ease-out duration-300 transform hover:-translate-y-1 hover:cursor-pointer',

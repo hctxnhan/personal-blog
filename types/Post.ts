@@ -7,4 +7,5 @@ export interface Post {
   title: string;
   thumbnail: DataSingle<Image>;
   label: DataSingle<Category>;
+  slug: string;
 }

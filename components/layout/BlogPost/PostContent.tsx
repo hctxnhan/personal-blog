@@ -17,7 +17,7 @@ const postContentVariants = cva('', {
   }
 });
 
-interface PostContentProps
+export interface PostContentProps
   extends VariantProps<typeof postContentVariants>,
     PropsWithChildren {}
 
@@ -33,11 +33,3 @@ export function PostContent({ children, variant = 'p' }: PostContentProps) {
   );
 }
 
-export const PostMDX = {
-  h1: (props: PostContentProps) => <PostContent variant="h2" {...props} />,
-  h2: (props: PostContentProps) => <PostContent variant="h3" {...props} />,
-  p: (props: PostContentProps) => <PostContent {...props} />,
-  quote: (props: PostContentProps) => (
-    <PostContent variant={'blockquote'} {...props} />
-  )
-};
