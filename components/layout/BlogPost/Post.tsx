@@ -41,7 +41,7 @@ export async function SinglePost({ slug }: { slug: string }) {
         height={post.attributes.thumbnail.data.attributes.height}
         width={post.attributes.thumbnail.data.attributes.width}
       />
-      <Container className="pt-0" noCursorTrailer>
+      <Container className="pt-0">
         <MDXRemote
           source={post.attributes.content}
           components={{

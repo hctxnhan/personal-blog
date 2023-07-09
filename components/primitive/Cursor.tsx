@@ -53,10 +53,14 @@ export function Cursor() {
       }
     };
 
-    window.onscroll = () => {
-      setShow(false);
-      setIsInteracting(false);
-    };
+    const fakeBody = document.querySelector('#fake-body') as HTMLElement;
+
+    if (fakeBody) {
+      fakeBody.onscroll = () => {
+        setShow(false);
+        setIsInteracting(false);
+      };
+    }
   }, [transform]);
 
   return (

@@ -7,5 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function constructUrl(url: string, root = false) {
-  return root ? `${environment.api.root}${url}` : `${environment.api.url}${url}`;
+  return root
+    ? `${environment.api.root}${url}`
+    : `${environment.api.url}${url}`;
 }

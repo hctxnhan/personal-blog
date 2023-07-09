@@ -30,7 +30,7 @@ export async function PopularPost() {
 
   const firstPost = data.attributes.posts.data[0];
   const remainingPosts = data.attributes.posts.data.slice(1);
-  console.log(firstPost);
+
   return (
     <Container>
       <div className="flex flex-col gap-8">

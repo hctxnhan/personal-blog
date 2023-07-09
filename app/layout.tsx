@@ -38,15 +38,19 @@ export default function RootLayout({
           inter.className,
           inter.variable,
           thunder.variable,
-          notoSerif.variable
+          notoSerif.variable,
+          'overflow-y-hidden'
         )}
       >
-        <Navbar className="left-1/2 transform -translate-x-1/2 bg-white h-[76px] fixed z-50" />
-        {children}
+        <Navbar className="left-1/2 transform -translate-x-1/2 bg-white h-[76px] fixed z-30" />
+        <div id="fake-body" className="overflow-y-auto h-screen w-screen">
+          {children}
+        </div>
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50">
           <Cursor />
         </div>
-        <div id="modal" className="z-50 absolute top-0 left-0" />
+        <div id="modal" className="z-40 absolute top-0 left-0" />
+        <div id="image" className="z-50 absolute left-0 top-0" />
       </body>
     </html>
   );

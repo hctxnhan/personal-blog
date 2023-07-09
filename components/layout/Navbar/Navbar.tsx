@@ -5,19 +5,44 @@ import { cn } from '@/lib/util';
 import { ContactButton } from './ContactButton';
 import { NavbarItem } from './NavbarItem';
 import { NavbarProfile } from './NavbarProfile';
+import { useEffect, useState } from 'react';
 
 interface NavbarProps {
   className?: string;
 }
 
+let prevScrollPos = 0;
+
 export function Navbar({ className }: NavbarProps) {
   const ref = useCursor<HTMLDivElement>(false);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(true);
+
+  useEffect(() => {
+    const fakeBody = document.querySelector('#fake-body') as HTMLElement;
+    if (fakeBody) {
+      fakeBody.addEventListener('scroll', (e) => {
+        const currentScrollPos = fakeBody.scrollTop;
+        if (prevScrollPos > currentScrollPos) {
+          setIsNavbarOpen(true);
+        } else {
+          setIsNavbarOpen(false);
+        }
+
+        prevScrollPos = currentScrollPos;
+      });
+    }
+  }, []);
 
   return (
-    <Container noMaxWidth className={cn('py-4', className)}>
+    <Container
+      noMaxWidth
+      className={cn('py-4 transition-transform', className, {
+        '-translate-y-[76px]': !isNavbarOpen
+      })}
+    >
       <div
         ref={ref}
-        className="flex justify-between items-center max-w-6xl mx-auto"
+        className={cn('flex justify-between items-center max-w-6xl mx-auto')}
       >
         <div className="flex gap-8 items-center">
           <NavbarItem link="/">Home</NavbarItem>

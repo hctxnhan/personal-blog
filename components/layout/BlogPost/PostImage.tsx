@@ -17,7 +17,11 @@ export function PostImage({ imgSrc, imgAlt, height, width }: PostImageProps) {
   function scrollToEndOfImage() {
     if (!imageRef.current) return;
 
-    window.scrollTo({
+    const fakeBody = document.querySelector('#fake-body') as HTMLElement;
+
+    if (!fakeBody) return;
+
+    fakeBody.scrollTo({
       top: imageRef.current.offsetTop + imageRef.current.clientHeight - 76,
       behavior: 'smooth'
     });
