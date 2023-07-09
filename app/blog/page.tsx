@@ -48,7 +48,7 @@ export default async function BlogPage({
 
   return (
     <main>
-      <Container includeNavbar>
+      <Container className='pt-6'>
         <div className="flex items-center w-full justify-between">
           <SectionHeader
             subtitle="See what news on my blog since last time you visited."

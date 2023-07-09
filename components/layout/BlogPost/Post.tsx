@@ -28,7 +28,7 @@ export async function SinglePost({ slug }: { slug: string }) {
 
   return (
     <div>
-      <Container includeNavbar className="pb-0">
+      <Container className="pb-0">
         <PostTitle>{post.attributes.title}</PostTitle>
         <PostAvatar />
       </Container>

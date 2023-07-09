@@ -4,7 +4,6 @@ import { useCursor } from '@/hooks/useCursor';
 import { cn } from '@/lib/util';
 import { ContactButton } from './ContactButton';
 import { NavbarItem } from './NavbarItem';
-import { NavbarProfile } from './NavbarProfile';
 import { useEffect, useState } from 'react';
 
 interface NavbarProps {
@@ -45,14 +44,12 @@ export function Navbar({ className }: NavbarProps) {
         ref={ref}
         className={cn('flex justify-between items-center max-w-6xl mx-auto')}
       >
+        <div className='font-display text-3xl text-sky-950'>phuonglinh.</div>
         <div className="flex gap-8 items-center">
           <NavbarItem link="/">Home</NavbarItem>
           <NavbarItem link="/blog">Blog</NavbarItem>
           <NavbarItem link="/about">About</NavbarItem>
           <ContactButton />
-        </div>
-        <div className="flex gap-8 items-center">
-          <NavbarProfile />
         </div>
       </div>
     </Container>

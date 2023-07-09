@@ -43,7 +43,7 @@ export default function RootLayout({
         )}
       >
         <Navbar className="left-1/2 transform -translate-x-1/2 bg-white h-[76px] fixed z-30" />
-        <div id="fake-body" className="overflow-y-auto h-screen w-screen">
+        <div id="fake-body" className="overflow-y-auto h-screen w-screen pt-[76px]">
           {children}
         </div>
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50">
