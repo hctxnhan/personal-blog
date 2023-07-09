@@ -22,6 +22,7 @@ export function Navbar({ className }: NavbarProps) {
     if (fakeBody) {
       fakeBody.addEventListener('scroll', (e) => {
         const currentScrollPos = fakeBody.scrollTop;
+
         if (prevScrollPos > currentScrollPos) {
           setIsNavbarOpen(true);
         } else {

@@ -15,7 +15,17 @@ export type DataSingle<T> = {
   data: DataEntry<T>;
 };
 
-export type DataCollection<T> = { data: DataEntry<T>[] };
+export type DataCollection<T> = {
+  data: DataEntry<T>[];
+  meta: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
+  };
+};
 
 export type FetchData<T> = T extends any[]
   ? DataCollection<T extends (infer U)[] ? U : never>
@@ -35,7 +45,6 @@ export const customFetch = async <T>(
       Authorization: authorization
     }
   })) as FetchResponse<T>;
-
   response.getData = response.json();
   return response;
 };

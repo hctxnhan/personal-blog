@@ -39,7 +39,10 @@ const buttonVariants = cva(['transition-all center'], {
     {
       variant: 'outline',
       tone: 'dark',
-      className: [styles.btnOutlineDark, 'hover:text-sky-50']
+      className: [
+        styles.btnOutlineDark,
+        'hover:text-sky-50 disabled:pointer-events-none disabled:text-gray-300 disabled:border-gray-300'
+      ]
     }
   ],
   defaultVariants: {
