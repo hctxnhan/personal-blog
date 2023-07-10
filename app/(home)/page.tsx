@@ -4,8 +4,6 @@ import { LatestPost } from './components/LatestPost';
 import { PopularPost } from './components/PopularPost';
 import { Gallery } from './components/Gallery';
 
-export const revalidate = 5;
-
 export default async function HomePage() {
   return (
     <main>

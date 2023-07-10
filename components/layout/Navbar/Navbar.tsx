@@ -44,8 +44,8 @@ export function Navbar({ className }: NavbarProps) {
         ref={ref}
         className={cn('flex justify-between items-center max-w-6xl mx-auto')}
       >
-        <div className='font-display text-3xl text-sky-950'>phuonglinh.</div>
-        <div className="flex gap-8 items-center">
+        <div className='font-display text-3xl text-sky-950 uppercase leading-none'>phuonglinh.</div>
+        <div className="flex gap-8 items-baseline">
           <NavbarItem link="/">Home</NavbarItem>
           <NavbarItem link="/blog">Blog</NavbarItem>
           <NavbarItem link="/about">About</NavbarItem>
