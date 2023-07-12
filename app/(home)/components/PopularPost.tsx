@@ -46,9 +46,9 @@ export async function PopularPost() {
           size="big"
           tag={firstPost.attributes.label.data.attributes.name}
           title={firstPost.attributes.title}
-          imgAlt={firstPost.attributes.thumbnail.data.attributes.caption}
+          alt={firstPost.attributes.thumbnail.data.attributes.caption}
           slug={firstPost.attributes.slug}
-          imgSrc={constructUrl(
+          src={constructUrl(
             firstPost.attributes.thumbnail.data.attributes.url,
             true
           )}
@@ -60,8 +60,8 @@ export async function PopularPost() {
               estimatedReadTime="1 min"
               tag={post.attributes.label.data.attributes.name}
               title={post.attributes.title}
-              imgAlt={post.attributes.thumbnail.data.attributes.caption}
-              imgSrc={constructUrl(
+              alt={post.attributes.thumbnail.data.attributes.caption}
+              src={constructUrl(
                 post.attributes.thumbnail.data.attributes.url,
                 true
               )}

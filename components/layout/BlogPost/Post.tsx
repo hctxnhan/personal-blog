@@ -28,16 +28,16 @@ export async function SinglePost({ slug }: { slug: string }) {
 
   return (
     <div>
-      <Container className="pb-0">
+      <Container className="pb-0 pt-2">
         <PostTitle>{post.attributes.title}</PostTitle>
         <PostAvatar />
       </Container>
       <PostImage
-        imgSrc={constructUrl(
+        src={constructUrl(
           post.attributes.thumbnail.data.attributes.url,
           true
         )}
-        imgAlt={post.attributes.title}
+        alt={post.attributes.title}
         height={post.attributes.thumbnail.data.attributes.height}
         width={post.attributes.thumbnail.data.attributes.width}
       />

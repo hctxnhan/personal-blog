@@ -15,6 +15,7 @@ export function ContactButton() {
         shape={'circle'}
         size={'small'}
         className="text-sm"
+        weight={'bold'}
       >
         Contact
       </Button>

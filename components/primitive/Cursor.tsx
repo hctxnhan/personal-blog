@@ -53,10 +53,9 @@ export function Cursor() {
       }
     };
 
-    const fakeBody = document.querySelector('#fake-body') as HTMLElement;
-
-    if (fakeBody) {
-      fakeBody.onscroll = () => {
+    const body = document.body;
+    if (body) {
+      body.onscroll = () => {
         setShow(false);
         setIsInteracting(false);
       };

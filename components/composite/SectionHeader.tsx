@@ -15,9 +15,9 @@ export function SectionHeader({
   inverted
 }: SectionHeaderProps) {
   return (
-    <div className="flex flex-col gap-1 items-baseline mb-12">
+    <div className="flex flex-col gap-4 items-baseline mb-12">
       <Heading
-        className={cn('text-sky-950 text-6xl uppercase', {
+        className={cn('text-sky-950 -mb-6 text-6xl uppercase', {
           'text-neutral-50': inverted
         })}
         size={'xl'}

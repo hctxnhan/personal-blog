@@ -6,15 +6,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Badge } from '../primitive/Badge';
 import { Overlay } from '../primitive/Overlay';
+import { ImageProps } from '@/types/ImageProps';
 
-export interface PostCardProps {
+export interface PostCardProps extends ImageProps {
   id?: number;
   title: string;
   preview?: string;
-  imgSrc: string;
-  imgAlt: string;
-  imgHeight?: number;
-  imgWidth?: number;
   tag: string;
   estimatedReadTime: string;
   size?: 'big' | 'small' | 'medium';
@@ -26,10 +23,10 @@ export interface PostCardProps {
 export function PostCard({
   estimatedReadTime,
   tag,
-  imgAlt,
-  imgSrc,
-  imgHeight,
-  imgWidth,
+  src,
+  alt,
+  height,
+  width,
   preview,
   title,
   size = 'small',
@@ -60,10 +57,10 @@ export function PostCard({
       >
         <Image
           className="absolute inset-0 w-full h-full -z-20 object-cover object-center"
-          src={imgSrc}
-          alt={imgAlt}
-          width={imgWidth || 500}
-          height={imgHeight || 500}
+          src={src}
+          alt={alt}
+          width={height || 500}
+          height={width || 500}
         />
         <Overlay className="transition-all group-hover:opacity-100 opacity-0" />
       </div>
@@ -77,9 +74,9 @@ export function PostCard({
         {!inset && (
           <div className="flex gap-2 items-baseline">
             <Badge>{tag}</Badge>
-            <span className="text-neutral-400 text-xs font-medium">
-              {estimatedReadTime}
-            </span>
+              <span className="text-neutral-400 text-xs font-medium">
+                {estimatedReadTime}
+              </span>
           </div>
         )}
         <h3

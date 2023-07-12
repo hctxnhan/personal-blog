@@ -1,43 +1,25 @@
 'use client';
-import { useCursor } from '@/hooks/useCursor';
+import { ImageProps } from '@/types/ImageProps';
 import Image from 'next/image';
 import { useRef } from 'react';
 
-interface PostImageProps {
-  imgSrc: string;
-  imgAlt: string;
-  height: number;
-  width: number;
-}
+interface PostImageProps extends ImageProps {}
 
-export function PostImage({ imgSrc, imgAlt, height, width }: PostImageProps) {
-  const cursorRef = useCursor<HTMLDivElement>('Start reading');
+export function PostImage({ src, alt, height, width }: PostImageProps) {
   const imageRef = useRef<HTMLImageElement>(null);
 
-  function scrollToEndOfImage() {
-    if (!imageRef.current) return;
-
-    const fakeBody = document.querySelector('#fake-body') as HTMLElement;
-
-    if (!fakeBody) return;
-
-    fakeBody.scrollTo({
-      top: imageRef.current.offsetTop + imageRef.current.clientHeight - 76,
-      behavior: 'smooth'
-    });
-  }
+  function scrollToEndOfImage() {}
 
   return (
     <div
       onClick={scrollToEndOfImage}
       className="grid grid-cols-container cursor-pointer"
-      ref={cursorRef}
     >
       <Image
         ref={imageRef}
         className="inset-0 w-full h-[800px] object-cover pt-8 pb-16 -z-20 col-span-2"
-        src={imgSrc}
-        alt={imgAlt}
+        src={src}
+        alt={alt}
         width={height}
         height={width}
       />
