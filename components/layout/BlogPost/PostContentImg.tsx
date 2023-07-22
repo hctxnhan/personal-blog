@@ -14,7 +14,7 @@ export function PostContentImg({ src, alt }: PostContentImgProps) {
   return (
     <>
       <span
-        className="relative block w-full h-[400px] cursor-pointer my-12"
+        className="relative block w-full h-[450px] cursor-pointer my-12"
         onClick={() => setIsZoomImageOpen(true)}
         ref={cursorRef}
       >
@@ -22,7 +22,7 @@ export function PostContentImg({ src, alt }: PostContentImgProps) {
           src={src}
           alt={alt}
           fill={true}
-          className="object-cover object-center w-full h-full"
+          className="object-cover object-center w-full h-full rounded-xl"
         />
       </span>
       <ZoomImage

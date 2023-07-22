@@ -8,16 +8,11 @@ interface PostImageProps extends ImageProps {}
 export function PostImage({ src, alt, height, width }: PostImageProps) {
   const imageRef = useRef<HTMLImageElement>(null);
 
-  function scrollToEndOfImage() {}
-
   return (
-    <div
-      onClick={scrollToEndOfImage}
-      className="grid grid-cols-container cursor-pointer"
-    >
+    <div className="grid grid-cols-container cursor-pointer">
       <Image
         ref={imageRef}
-        className="inset-0 w-full h-[800px] object-cover pt-8 pb-16 -z-20 col-span-2"
+        className="inset-0 w-full h-[500px] object-cover pb-16 -z-20 col-start-2 rounded-2xl"
         src={src}
         alt={alt}
         width={height}

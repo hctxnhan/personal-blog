@@ -50,7 +50,7 @@ export async function PostCategoryBanner({
         <div className="w-full relative flex flex-col gap-1">
           <div className="h-[100px] w-full overflow-hidden center relative">
             <Overlay />
-            <p className="text-white text-4xl -mb-4 font-display uppercase">
+            <p className="text-white text-4xl font-display uppercase">
               {title}
             </p>
             <Image

@@ -17,8 +17,8 @@ export function NavbarItem({ label, children, link }: NavbarItemProps) {
     <Link
       href={link}
       className={cn(
-        `group inline-block cursor-pointer text-sky-800 font-medium relative after:transition-all uppercase
-        after:block after:absolute after:w-0 after:hover:w-[25px] after:max-w-full after:h-1 after:bg-sky-800`,
+        `group inline-block cursor-pointer text-sky-800 font-semibold relative after:transition-all uppercase
+        after:block after:absolute after:w-0 after:hover:w-[25px] after:max-w-full after:h-0.5 after:bg-sky-800`,
         {
           'after:w-full after:hover:w-full': isActive
         }

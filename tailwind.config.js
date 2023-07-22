@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'sans-serif'],
-        serif: ['var(--font-noto-serif)', "serif"],
-        display: ['var(--font-thunder)', "serif"],
+        sans: ['var(--font-sans)', 'sans-serif'],
+        serif: ['var(--font-serif)', "serif"],
+        display: ['var(--font-clashDisplay)', "serif"],
       },
       gridTemplateColumns: {
         container: 'minmax(0, 1fr) minmax(72rem, 1fr) minmax(0, 1fr)',

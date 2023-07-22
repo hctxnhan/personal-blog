@@ -1,25 +1,28 @@
 import { Cursor } from '@/components/primitive/Cursor';
 import { cn } from '@/lib/util';
-import { Inter, Noto_Serif } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar/Navbar';
 import { Footer } from '@/components/layout/Footer/Footer';
 
-const notoSerif = Noto_Serif({
-  subsets: ['latin'],
-  variable: '--font-noto-serif',
-  weight: ['400', '700']
+const sans = localFont({
+  src: '../public/fonts/GeneralSans-Variable.ttf',
+  variable: '--font-sans'
 });
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter'
+const serif = localFont({
+  src: '../public/fonts/CabinetGrotesk-Variable.ttf',
+  variable: '--font-serif'
 });
 
-const thunder = localFont({
-  src: '../public/fonts/Thunder-SemiBold.ttf',
-  variable: '--font-thunder'
+// const thunder = localFont({
+//   src: '../public/fonts/Thunder-SemiBold.ttf',
+//   variable: '--font-thunder'
+// });
+
+const clashDisplay = localFont({
+  src: '../public/fonts/ClashDisplay-Variable.ttf',
+  variable: '--font-clashDisplay'
 });
 
 export const metadata = {
@@ -36,14 +39,22 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          inter.className,
-          inter.variable,
-          thunder.variable,
-          notoSerif.variable,
-          'overflow-y-auto'
+          sans.variable,
+          sans.className,
+          serif.variable,
+          // thunder.variable,
+          clashDisplay.variable,
+          'overflow-y-auto relative'
         )}
       >
-        <Navbar className="bg-white" />
+        <div
+          className="absolute inset-0 w-full h-full -z-20 opacity-[0.1] object-cover object-center blur-lg"
+          style={{
+            backgroundImage:
+              'url(https://images.unsplash.com/photo-1686904423955-b928225c6488?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80)'
+          }}
+        ></div>
+        <Navbar />
         <div id="fake-body">{children}</div>
         <Footer />
 

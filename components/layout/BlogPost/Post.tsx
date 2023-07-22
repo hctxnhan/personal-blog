@@ -1,13 +1,12 @@
 import { Container } from '@/components/primitive/Container';
-import { PostTitle } from './PostTitle';
-import { PostAvatar } from './PostAvatar';
-import { PostImage } from './PostImage';
 import { customFetch } from '@/lib/fetch';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { PostMDX } from './PostMDX';
-import { Post } from '@/types/Post';
 import { constructUrl } from '@/lib/util';
+import { Post } from '@/types/Post';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import qs from 'qs';
+import { PostImage } from './PostImage';
+import { PostMDX } from './PostMDX';
+import { PostTitle } from './PostTitle';
 
 export async function SinglePost({ slug }: { slug: string }) {
   const url = qs.stringify({
@@ -27,31 +26,27 @@ export async function SinglePost({ slug }: { slug: string }) {
   const post = data[0];
 
   return (
-    <div>
-      <Container className="pb-0 pt-2">
-        <PostTitle>{post.attributes.title}</PostTitle>
-        <PostAvatar />
-      </Container>
+    <div className="relative">
       <PostImage
-        src={constructUrl(
-          post.attributes.thumbnail.data.attributes.url,
-          true
-        )}
+        src={constructUrl(post.attributes.thumbnail.data.attributes.url, true)}
         alt={post.attributes.title}
         height={post.attributes.thumbnail.data.attributes.height}
         width={post.attributes.thumbnail.data.attributes.width}
       />
       <Container className="pt-0">
-        <MDXRemote
-          source={post.attributes.content}
-          components={{
-            h1: PostMDX.h1,
-            h2: PostMDX.h2,
-            p: PostMDX.p,
-            blockquote: PostMDX.quote,
-            img: PostMDX.img
-          }}
-        />
+        <div className="max-w-[800px] mx-auto">
+          <PostTitle>{post.attributes.title}</PostTitle>
+          <MDXRemote
+            source={post.attributes.content}
+            components={{
+              h1: PostMDX.h1,
+              h2: PostMDX.h2,
+              p: PostMDX.p,
+              blockquote: PostMDX.quote,
+              img: PostMDX.img
+            }}
+          />
+        </div>
       </Container>
     </div>
   );
