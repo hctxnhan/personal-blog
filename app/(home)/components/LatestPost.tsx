@@ -11,7 +11,6 @@ export async function LatestPost() {
     <Container>
       <div className="flex flex-col gap-8">
         <SectionHeader
-          subtitle="See what news on my blog since last time you visited."
           title="Latest Post"
         />
       </div>

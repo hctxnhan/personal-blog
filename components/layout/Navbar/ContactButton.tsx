@@ -17,7 +17,7 @@ export function ContactButton() {
         className="text-sm"
         weight={'bold'}
       >
-        Contact
+        CONTACT
       </Button>
       <Modal.Root isOpen={isOpen} setIsOpen={setIsOpen}>
         <Modal.Header

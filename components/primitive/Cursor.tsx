@@ -74,7 +74,7 @@ export function Cursor() {
     >
       <span
         className={cn(
-          'font-display uppercase text-white opacity-0 text-lg font-thin transition-opacity',
+          'font-display uppercase text-white opacity-0 font-medium transition-opacity',
           {
             'opacity-100': isInteracting && show
           }

@@ -5,7 +5,7 @@ import * as Separator from '@radix-ui/react-separator';
 import { forwardRef } from 'react';
 import styles from './Button.module.css';
 
-const buttonVariants = cva(['transition-all center'], {
+const buttonVariants = cva(['transition-all center hover:opacity-80'], {
   variants: {
     variant: {
       outline: 'border-2 border-sky-800 text-sky-800',

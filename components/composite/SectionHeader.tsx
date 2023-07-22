@@ -6,18 +6,20 @@ interface SectionHeaderProps {
   subtitle?: string;
   children?: React.ReactNode;
   inverted?: boolean;
+  className?: string;
 }
 
 export function SectionHeader({
   children,
   subtitle,
   title,
-  inverted
+  inverted,
+  className
 }: SectionHeaderProps) {
   return (
-    <div className="flex flex-col gap-4 items-baseline mb-12">
+    <div className={cn('flex flex-col gap-4 items-baseline mb-6', className)}>
       <Heading
-        className={cn('text-sky-950 -mb-6 text-6xl uppercase', {
+        className={cn('text-sky-950 text-4xl uppercase font-semibold', {
           'text-neutral-50': inverted
         })}
         size={'xl'}
@@ -25,11 +27,17 @@ export function SectionHeader({
       >
         {title ?? children}
       </Heading>
-      <Heading className={cn("text-neutral-500", {
-        'text-neutral-300': inverted
-      })} size={'h4'} font={'serif'}>
-        {subtitle}
-      </Heading>
+      {subtitle && (
+        <Heading
+          className={cn('text-slate-600 font-bold', {
+            'text-slate-200': inverted
+          })}
+          size={'h4'}
+          font={'serif'}
+        >
+          {subtitle}
+        </Heading>
+      )}
     </div>
   );
 }

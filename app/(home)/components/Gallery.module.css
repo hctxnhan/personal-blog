@@ -1,0 +1,11 @@
+.galleryGrid {
+  display: grid;
+  grid-template-areas:
+    'a a a'
+    'b b c'
+    'd d c';
+  grid-auto-flow: dense;
+  grid-auto-rows: calc(100vh / 3);
+  gap: 8px;
+  margin-bottom: 8px;
+}

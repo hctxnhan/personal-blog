@@ -35,7 +35,6 @@ export async function PopularPost() {
     <Container>
       <div className="flex flex-col gap-8">
         <SectionHeader
-          subtitle={data.attributes.subtitle}
           title={data.attributes.title}
         />
       </div>

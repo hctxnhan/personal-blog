@@ -1,19 +1,29 @@
 import { Container } from '@/components/primitive/Container';
 import { Overlay } from '@/components/primitive/Overlay';
 import { customFetch } from '@/lib/fetch';
+import { Category } from '@/types/Category';
 import { Homepage } from '@/types/Single';
 import Image from 'next/image';
+import { HeroSubtitleLoop } from './components/HeroSubtitleLoop';
 
 export async function Hero() {
   const homepageSingle = await customFetch<Homepage>(
     'homepage?fields[0]=heroTitle&fields[1]=heroSubtitle&populate[0]=heroImage'
   );
 
+  const labelCollections = await customFetch<Category[]>(`labels?fields=name`);
+  const { data: labels } = await labelCollections.getData;
+  const currentLabels = labels.map((label) => label.attributes.name);
+
   const { data } = await homepageSingle.getData;
-  if(!data) return null;
+  if (!data) return null;
 
   return (
-    <Container noMaxWidth screenHeight className="center relative min-h-screen">
+    <Container
+      noMaxWidth
+      screenHeight
+      className="center relative h-[calc(100vh-200px)]"
+    >
       <Image
         className="absolute inset-0 w-full h-full -z-20"
         src={
@@ -24,11 +34,13 @@ export async function Hero() {
         height={980}
       />
       <Overlay />
-      <div className="flex flex-col gap-4 mx-auto justify-center text-white text-center">
-        <p className="text-9xl font-display z-10">{data.attributes.heroTitle}</p>
-        <p className="text-2xl font-serif z-10 text-neutral-200">
-          {data.attributes.heroSubtitle}
-        </p>
+      <div className="center">
+        <div className="text-white text-xl flex items-center gap-1.5">
+          <p>So you expected to read some blog about</p>
+          <div className="flex items-center gap-4 justify-center h-[40px]">
+            <HeroSubtitleLoop items={currentLabels} changeInterval={2000} />
+          </div>
+        </div>
       </div>
     </Container>
   );
