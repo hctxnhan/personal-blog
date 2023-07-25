@@ -4,21 +4,17 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Navbar } from '@/components/layout/Navbar/Navbar';
 import { Footer } from '@/components/layout/Footer/Footer';
+import { Noto_Serif } from 'next/font/google';
 
 const sans = localFont({
   src: '../public/fonts/GeneralSans-Variable.ttf',
   variable: '--font-sans'
 });
 
-const serif = localFont({
-  src: '../public/fonts/CabinetGrotesk-Variable.ttf',
+const serif = Noto_Serif({
+  subsets: ['latin'],
   variable: '--font-serif'
 });
-
-// const thunder = localFont({
-//   src: '../public/fonts/Thunder-SemiBold.ttf',
-//   variable: '--font-thunder'
-// });
 
 const clashDisplay = localFont({
   src: '../public/fonts/ClashDisplay-Variable.ttf',
@@ -42,7 +38,6 @@ export default function RootLayout({
           sans.variable,
           sans.className,
           serif.variable,
-          // thunder.variable,
           clashDisplay.variable,
           'overflow-y-auto relative'
         )}
